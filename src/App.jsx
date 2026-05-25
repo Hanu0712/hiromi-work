@@ -27,7 +27,10 @@ const emptyData = () => ({
   work8: "",
   memo: "",
 });
-const today = () => new Date().toISOString().slice(0, 10);
+const today = () => {
+  const d = new Date();
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+};
 const fmtDate = (d) => {
   const dt = new Date(d + "T00:00:00");
   return `${dt.getFullYear()}年${dt.getMonth() + 1}月${dt.getDate()}日`;
